@@ -1,9 +1,21 @@
 {
   "meta": {
-    "username": "put your username here",
-    "repositoryName": "put your repository name here",
+    "username": "polarbill",
+    "repositoryName": "polarbill.github.io",
     "branch": "master"
+    "cname": "blog.polarbill.com"
   },
+  "site": {
+    "title": "PolarBill's blog",
+	  "logo": "https://avatars2.githubusercontent.com/u/450350?v=3&s=460",
+    "postsPerPage": "10",
+    "googleAnalytics": "UA-46438143-1",
+    "url": "http://blog.polarbill.com"
+  },
+  "socialnetwork":{
+		"twitter":"https://twitter.com/polarbill",
+		"github":"https://github.com/polarbill"
+	},
   "theme": {
     "name": "Casper"
   }
