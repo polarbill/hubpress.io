@@ -1,0 +1,24 @@
+:idprefix: id_Art_Watermelon_Shark
+= Watermelon Shark
+:hp-tags: Art, Summer, Watermelon,
+:hp-image: /covers/cover.png
+:published_at: 2017-06-20
+
+Although this is something I made on a whim, I'm still proud of it and will include it in my colelction of art. More pictures below.
+
+video::CgBqHRPgDeA[youtube]
+
+[%autowidth]
+|===
+| Title | Watermelon Shark
+| Medium | Food (Watermlon)
+| Embedded NFC Serial | None
+| Provenance | Bill Davison (2017) + 
+Given to the Martinez family shortly after +
+Trash can some point after that.
+| Inspiration | The original goal was for this to be made for a pool/movie birthday party where we would watch Jaws in the pool. Time, resources, and weather cause the delay of the shark, but not the party itself. I decided to make it the following week for another party.
+|===
+
+image::/images/Watermelon_shark_large.jpg[]
+
+image::/images/Watermelon_shark_front_large.jpg[]
