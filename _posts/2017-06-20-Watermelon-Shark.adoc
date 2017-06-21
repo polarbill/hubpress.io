@@ -1,7 +1,7 @@
 :idprefix: id_Art_Watermelon_Shark
 = Watermelon Shark
 :hp-tags: Art, Summer, Watermelon,
-:hp-image: /covers/cover.png
+:hp-image: /images/cover_watermelonshark.png
 :published_at: 2017-06-20
 
 Although this is something I made on a whim, I'm still proud of it and will include it in my colelction of art. More pictures below.
