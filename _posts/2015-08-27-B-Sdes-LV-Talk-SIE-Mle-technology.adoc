@@ -1,0 +1,10 @@
+= BSides LV Talk - SIEMple technology
+
+:published_at: 2015-08-27
+
+Below is my talk I previously mentioned about setting up and maintaining a SIEM in your environment. If you would like the slides, additional links, or to download my talk, please go to https://github.com/polarbill/Presentations/tree/master/BSides%20LV%202015[SIEMple Technology materials] +
+
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K6a_CYKgv6o" frameborder="0" allowfullscreen></iframe>
+++++
