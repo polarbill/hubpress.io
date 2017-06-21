@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[PolarBill's blog]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Wed, 21 Jun 2017 22:20:31 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[BSides LV Talk - SIEMple technology]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[PolarBill's blog]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Wed, 21 Jun 2017 22:22:30 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Florida Boxer Rescue]]></title><description><![CDATA[<div class="paragraph">
+<p><a href="http://www.flbr.org">Florida Boxer Rescue</a> posted a "Giving Thanks" <a href="https://www.facebook.com/Florida.Boxer.Rescue">Facebook</a> post on my wife and I. I thought I would add it to my blog.</p>
+</div>
+<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-post" data-href="https://www.facebook.com/Florida.Boxer.Rescue/posts/10153294016860949:0" data-width="500"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Florida.Boxer.Rescue/posts/10153294016860949:0"><p>GIVING THANKS!Today we would like to give thanks to Andrea and Bill Davison who are amazing volunteers and foster home...</p>Posted by <a href="https://www.facebook.com/Florida.Boxer.Rescue/">Florida Boxer Rescue</a> on&nbsp;<a href="https://www.facebook.com/Florida.Boxer.Rescue/posts/10153294016860949:0">Friday, December 18, 2015</a></blockquote></div></div>
+<div class="paragraph">
+<p>For those blocking scripts/cant see it, the pic/text is below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/s720x720/12348051_10153294016860949_2519079840824693331_n.jpg?oh=f65ccf4324fdc7e675b547a50d5b4f8d&oe=56D9718D" alt="Andrea and myself with Zoey(left and Narley(right)">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>GIVING THANKS!</p>
+</div>
+<div class="paragraph">
+<p>Today we would like to give thanks to Andrea and Bill Davison who are amazing volunteers and foster home to many dogs in need.</p>
+</div>
+<div class="paragraph">
+<p>Andrea and Bill Davison have been with the rescue for close to 5 years. They initially applied to FBR to adopt but was asked if they would be willing to foster an urgent needs dog. They immediately stepped up and picked up a &gt;terrified pup from HCAS who they named Chance. Since then, they have been dedicated foster parents to 14 boxers (and counting) and are always willing to volunteer their time at events and FBR gatherings.</p>
+</div>
+<div class="paragraph">
+<p>Thank you so much for your dedication and willingness to open your heart and home to foster so many dogs in need. Compassionate Care boy Narley has been so blessed to have you for his family and Zoey is loving being with you. Thank you from all of us here at Florida Boxer Rescue. We wouldn&#8217;t be able to save those that we do without volunteers like you!</p>
+</div>
+</blockquote>
+</div>]]></description><link>http://blog.polarbill.com/2015/12/19/Florida-Boxer-Rescue.html</link><guid isPermaLink="true">http://blog.polarbill.com/2015/12/19/Florida-Boxer-Rescue.html</guid><category><![CDATA[Boxer]]></category><category><![CDATA[Dogs]]></category><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Sat, 19 Dec 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[BSides LV Talk - SIEMple technology]]></title><description><![CDATA[<div class="paragraph">
 <p>Below is my talk I previously mentioned about setting up and maintaining a SIEM in your environment. If you would like the slides, additional links, or to download my talk, please go to <a href="https://github.com/polarbill/Presentations/tree/master/BSides%20LV%202015">SIEMple Technology materials</a><br></p>
 </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K6a_CYKgv6o" frameborder="0" allowfullscreen></iframe>]]></description><link>http://blog.polarbill.com/2015/08/27/B-Sdes-LV-Talk-SIE-Mle-technology.html</link><guid isPermaLink="true">http://blog.polarbill.com/2015/08/27/B-Sdes-LV-Talk-SIE-Mle-technology.html</guid><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Thu, 27 Aug 2015 00:00:00 GMT</pubDate></item></channel></rss>
