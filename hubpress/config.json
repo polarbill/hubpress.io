@@ -2,7 +2,8 @@
   "meta": {
     "username": "polarbill",
     "repositoryName": "polarbill.github.io",
-    "branch": "master"
+    "branch": "master",
+    "cname": "blog.polarbill.com"
   },
   "theme": {
     "name": "casper"
@@ -22,5 +23,27 @@
       null,
       null
     ]
+  },
+  "site": {
+    "title": "PolarBill's blog",
+    "description": "",
+    "logo": "https://avatars2.githubusercontent.com/u/450350?v=3&s=460",
+    "cover": "",
+    "delay": "",
+    "postsPerPage": "",
+    "googleAnalytics": "UA-46438143-1",
+    "disqus": ""
+  },
+  "socialnetwork": {
+    "email": "",
+    "github": "https://github.com/polarbill",
+    "twitter": "https://twitter.com/polarbill\"",
+    "facebook": "",
+    "googleplus": "",
+    "instagram": "",
+    "pinterest": "",
+    "flickr": "",
+    "linkedin": "",
+    "stackoverflow": ""
   }
 }
