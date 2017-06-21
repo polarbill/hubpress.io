@@ -1,6 +1,6 @@
 = Watermelon Shark
 :hp-tags: Art, Summer, Watermelon,
-:hp-image: /images/cover_watermelonshark.png
+//:hp-image: /images/cover_watermelonshark.png
 :published_at: 2017-06-20
 :idprefix: id_Art_Watermelon_Shark
 
