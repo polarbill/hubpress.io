@@ -9,10 +9,10 @@
     "name": "casper"
   },
   "urls": {
-    "site": "https://polarbill.github.io",
-    "hubpress": "https://polarbill.github.io",
-    "theme": "//polarbill.github.io/themes/casper",
-    "images": "https://polarbill.github.io/images"
+    "site": "http://blog.polarbill.com",
+    "hubpress": "http://blog.polarbill.com",
+    "theme": "//blog.polarbill.com/themes/casper",
+    "images": "http://blog.polarbill.com/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
