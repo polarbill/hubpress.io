@@ -1,0 +1,19 @@
+= Dinosaurs Make Better Lovers
+:hp-tags: Art, Dinosaur, Acrylic,
+//:hp-image: /images/cover_HugsonWood.png
+:published_at: 2017-06-21
+:idprefix: id_Art_Dinosaurs_Make_Better_Lovers
+
+
+[%autowidth]
+|===
+| Title | Dinosaurs Make Better Lovers
+| Medium | Acrylic on Canvas w/ Wire Frame
+| Embedded NFC Serial | N/A
+| Provenance | Bill Davison (Artist) 2009 +
+Jason Bolton 2009
+| Inspiration | The original concept for this was hand drawn on a tshirt with a sharpie by Jason. When Jason moved into his own house, I felt the need to turn it into a painting. I originally created a digital version using Gimp before starting the painting.
+|===
+
+
+// image::/images/Watermelon_shark_front_large.jpg[]
