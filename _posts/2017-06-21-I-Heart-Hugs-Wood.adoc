@@ -1,0 +1,21 @@
+= I (Heart) Hugs - Wood
+:hp-tags: Art, Squid, Acrylic,
+//:hp-image: /images/cover_HugsonWood.png
+:published_at: 2017-06-21
+:idprefix: id_Art_Heart_Hugs_on_Wood
+
+
+[%autowidth]
+|===
+| Title | I (Heart) Hugs
+| Medium | Acrylic on Wood
+| Embedded NFC Serial | 9B:B0:5B:7C
+| Provenance | Bill Davison (Artist) 2017 +
+On Loan to Dan (the Wild Man) 2017  + 
+| Inspiration | After Bill's first painting of I (Heart) Hugs, he has wanted to expand the concept with a larger canvas and more detailed work. Around this time Dan asked Bill about ways to incorporate technology into his painting, he had asked for a proof of concept. Bill decided to take this opportunity to heart. +
+ +
+This is also the first painting with the INFO/NFC chip that Dan asked Bill to research.
+|===
+
+
+// image::/images/Watermelon_shark_front_large.jpg[]
