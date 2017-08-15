@@ -3,7 +3,7 @@
     "username": "polarbill",
     "repositoryName": "polarbill.github.io",
     "branch": "master",
-    "cname": "polarbill.com"
+    "cname": "blog.polarbill.com"
   },
   "theme": {
     "name": "casper"
@@ -37,7 +37,7 @@
   "socialnetwork": {
     "email": "",
     "github": "https://github.com/polarbill",
-    "twitter": "https://twitter.com/polarbill\"",
+    "twitter": "https://twitter.com/polarbill",
     "facebook": "",
     "googleplus": "",
     "instagram": "",
