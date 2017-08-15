@@ -9,10 +9,10 @@
     "name": "casper"
   },
   "urls": {
-    "site": "http://polarbill.com",
+    "site": "http://blog.polarbill.com",
     "hubpress": "http://blog.polarbill.com",
-    "theme": "//polarbill.com/themes/casper",
-    "images": "http://polarbill.com/images"
+    "theme": "//blog.polarbill.com/themes/casper",
+    "images": "http://blog.polarbill.com/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
@@ -43,7 +43,7 @@
     "instagram": "",
     "pinterest": "",
     "flickr": "",
-    "linkedin": "",
+    "linkedin": "https://www.linkedin.com/in/billdavison/",
     "stackoverflow": ""
   }
 }
