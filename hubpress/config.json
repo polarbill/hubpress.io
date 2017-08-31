@@ -26,11 +26,11 @@
   },
   "site": {
     "title": "PolarBill's blog",
-    "description": "",
+    "description": "Random things I've found interesting.",
     "logo": "https://avatars2.githubusercontent.com/u/450350?v=3&s=460",
     "cover": "",
     "delay": "",
-    "postsPerPage": "",
+    "postsPerPage": "5",
     "googleAnalytics": "UA-46438143-1",
     "disqus": ""
   },
