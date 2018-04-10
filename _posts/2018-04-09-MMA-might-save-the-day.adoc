@@ -17,14 +17,63 @@ Alright, lets dive into using this tool. Install MMA on a system you with plenty
 
 On the system you want to investigate. Run an elevated command prompt. Then start the packet capture by typing *netsh trace start capture=yes*. This will start the trace and save to appdata\local\temp\NetTraces\ and default to a capture size of 250 MB. This can be changes by adding *tracefile=(drive location)\(file name).etl* and change the max file size by adding *maxsize=###mb*(warning, extending the size  larger will tax MMA proportionally). The trace file will start and start capturing a lot of data. Depending on the amount of traffic in your environment, you can max the trace file rather quickly. 
 
+While we are waiting for the capture, lets make some changes to assist us win analysis in MMA. We are going to add aliases for expected IP addresses. This will let us see a nickname instead of the IP address. Well start the first view of MMA.
+
+image::2018-04_PCI-MMA/MMA.PNG[]
+
+Then Click on Tools > Aliases > Manage Aliases
+
+image::2018-04_PCI-MMA/MMA-aliases_1.PNG[]
+
+I haven't found a way to start a brand new alias (small gripe), so right-click on the loopback address and select "Create a Copy"
+
+image::2018-04_PCI-MMA/MMA-aliases_2.PNG
+
+Next Change the IP value to what you expect and give it the nickname you want. For this demo I only created the local IP and a gateway IP. In reality you would create aliases for the connections you expect the server will have. You'll also need to go and check mark the alias you want MMA to enable.
+
+image::2018-04_PCI-MMA/MMA-aliases_3.PNG
+
+
 Once you've waited an appropriate time, go back to the server and run *netsh trace stop*. 
+
 image::2018-04_PCI-MMA/netsh_trace.PNG[]
-This will finish colecting data and once done provide two files. The primary .etl file mentioned in the output and a .cab file named the same way. Copy these two files to your local machine, load them in MMA and take a abreak. Wait till your cpu utilization stays below 80%, and you are now ready to start investigating.
+
+This will finish collecting data and once done provide two files. The primary .etl file mentioned in the output and a .cab file named the same way. Copy these two files to your local machine, load them in MMA and take a abreak. Wait till your cpu utilization stays below 80%, and expect MMA to take nearly 2 gigs of ram per trace you have loaded. Now we are ready to start investigating. Below is a picture of a newly loaded session. 
+
+image::2018-04_PCI-MMA/MMA-loaded.PNG[]
+
+Now we'll add some filters and additional columns to make our job quicker. First we'll have MMA show just TLS/SSL traffic of any version. The best filter is *(TLS.records[0].version)*, however if you are looking for specific versions, you can also do *(TLS.records[0].version) and (TLS.records[0].version.minor == 0)* for SSL 3.0 or use *(TLS.records[0].version) and (TLS.records[0].version.minor != 3)* for all non-TLS 1.2 traffic. Refer to the table below for information on specifics.
+
+[width="80%", cols=">s,^m,e",frame="topbot",options="header]
+|===
+|Common Version name |Response Major version |Response Minor version
+| SSL 3.0 | 03 | 00
+| TLS 1.0 | 03 | 01
+| TLS 1.1 | 03 | 02
+| TLS 1.2 | 03 | 03
+|===
+
+Once you hit Apply on the filter, you should only see TLS traffic, 
+
+image::2018-04_PCI-MMA/MMA-filter.PNG[]
+
+Because Module column will be just TLS and the Summary column wont caontain valuable data, we'll go ahead and shorten the widths. I'll then click on one of the "messages", Select IPv4 layer on the lower left window (Messsage Stack 1). Then right-click on the Source and Destination address in the "Details 1" window. And select "Add Source/Destination Address as Column". You'll see MMA might also run recursive DNS. Then I'll click on the TLS layer in "Message Stack 1", expand Records in "Details 1" and expand [0]. Now we will add version as a Column as well.
+
+image::2018-04_PCI-MMA/MMA-add_columns.PNG[]
+
+Everything up to now can be done in Wireshark, a tool I prefer over MMA almost every time. Now lets add process details. On the upper right is another window called "Field chooser". In its search bar, lets type *process*. You should see high up in the list will include, Process Command, Process ID, Process Name, and Process User SID under Global Properties.
+
+image::2018-04_PCI-MMA/MMA-filed_chooser.PNG[]
+
+I like to add the Process Name and Process Command. Once you've add these, you'll notice that the ProcessName might include "Idle" or a "(###)". You'll see idle when a packet is inbound to the system. Considering the nature of SSL/TLS, you can ignore these and filter them out if you would like.  
+I have seen it sometimes also provides a false process as well for inbound packets. The the ProcessName field has a number in parentheses, then that is the process ID and the process ended before stopping the packet capture. If you have the proper auditing, then you can cross reference event logs for the process ID.
+
+In the picture below, you can see two processes highlighted. WindowsAzureGuestAgent using TLS 1.2 and LF Intrusion Detection Service using TLS 1.0. At this point, I would confirm that tool has the capability to use TLS 1.2 and then research the proper solution.
+
+image::2018-04_PCI-MMA/MMA-2processes.PNG[]
+
+
+Last thing I want to make you aware is if you are looking into an external facing IIS (w3wp.exe) or other website that is using TLs. Be aware that the external client might not be able to use TLS 1.2. In those situations, it helps to review the initial TLS handshake where you can see the client and server repsonses that includes what version they want to use to communicate.
 
 
 
-
-
-
-
-// MMA started about 1:15 pm
