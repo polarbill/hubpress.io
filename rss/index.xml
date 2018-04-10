@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[Random things I've found interesting.]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 10 Apr 2018 19:17:29 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Inspecting and correlating TLS/SSL traffic in Windows]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[Random things I've found interesting.]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 10 Apr 2018 19:21:22 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Inspecting and correlating TLS/SSL traffic in Windows]]></title><description><![CDATA[<div class="paragraph">
 <p>With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not always the case if you still want all of your custom windows applications to still work. To this I started to use Microsoft Message Analzer to not just see what TLS/SSL protocols were being used, but also what processes were obstinently still using the older cipher suites.</p>
 </div>
 <div class="paragraph">
@@ -58,7 +58,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-loaded.PNG" alt="MMA loaded.PNG">
+<img src="https://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-loaded.PNG" alt="MMA loaded.PNG">
 </div>
 </div>
 <div class="paragraph">
@@ -103,7 +103,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-filter.PNG" alt="MMA filter.PNG">
+<img src="https://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-filter.PNG" alt="MMA filter.PNG">
 </div>
 </div>
 <div class="paragraph">
@@ -111,7 +111,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-add_columns.PNG" alt="MMA add columns.PNG">
+<img src="https://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-add_columns.PNG" alt="MMA add columns.PNG">
 </div>
 </div>
 <div class="paragraph">
@@ -119,7 +119,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-filed_chooser.PNG" alt="MMA filed chooser.PNG">
+<img src="https://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-filed_chooser.PNG" alt="MMA filed chooser.PNG">
 </div>
 </div>
 <div class="paragraph">
@@ -131,7 +131,7 @@ I have seen it sometimes also provides a false process as well for inbound packe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-2processes.PNG" alt="MMA 2processes.PNG">
+<img src="https://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-2processes.PNG" alt="MMA 2processes.PNG">
 </div>
 </div>
 <div class="paragraph">
