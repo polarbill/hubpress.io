@@ -1,13 +1,21 @@
 = Inspecting and correlating TLS/SSL traffic in Windows
 
-// :hp-image: /covers/cover.png
+//:hp-image: /covers/cover.png
 :published_at: 2018-04-09
-:hp-tags: PCI, netsh, Windows, Microsoft Message Analyzer, TLS
+:hp-tags: PCI, netsh, Windows, Microsoft Message Analyzer,
 :hp-alt-title: MMA might save the day
 
 
 
 With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not always the case if you still want all of your custom windows applications to still work. To this I started to use Microsoft Message Analzer to not just see what TLS/SSL protocols were being used, but also what processes were obstinently still using the older cipher suites.
+
+I would like to preface that this is not the best way to run to preliminarily look for older SSL/TLS in your environment. If you just want to see what versions of TLS, but dont really care about finding the process, then you will have a much easier time running wireshark or seeing if your FW can detect ther version. Using tcpdump or Wireshark capture filter of "tcp port 443 and (tcp[((tcp[12] & 0xf0) >> 2)] = 0x16)" will limit to TLS handshake traffic and is much easier to run for longer periods of time. Additionally Microsoft Message Analyzer requires A LOT of resources to parse a 250 mg trace. I would suggest 4 cores and 16 gigs of ram, and you should still expect to give the tool 30-60 seconds when loading or making major changes. I tried running MMA in my Azure instance (Standard D1: 1 core, 3.5 gigs ram) and I gave up after it spiked the CPU for 11 hours.
+
+What MMA does have going for itself are two things. Being able to associate traffic with a process, and being able to natively capture traffic with installing any software on the server. This is a bonus in my use case as a change request process for PCI envrionments could delay troubleshooting.
+
+Alright, lets dive into using this tool. Install MMA on a system you with plenty of CPU and moderate RAM. I would recommend not installing it on the server you want to investigate. Through MMA, you can run a remote trace if you have the right firewall rules in place, but I normally set up capturing the packets as a separate process.
+
+On the system you want to investigate. Run an elevated command prompt. Then start the packet capture by typing *netsh trace start capture=yes*. This will start the trace and save to appdata\local\temp\NetTraces\ and default to a capture size of 250 MB. This can be changes by adding *tracefile=(drive location)\(file name).etl* and change the max file size by adding *maxsize=###mb*(warning, extending the size  larger will tax MMA proportionally). The trace file will start and start capturing a lot of data. Depending on the amount of traffic in your environment, you can max the trace file rather quickly.
 
 
 
