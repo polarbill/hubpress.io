@@ -1,0 +1,16 @@
+= Inspecting and correlating TLS/SSL traffic in Windows
+
+// :hp-image: /covers/cover.png
+:published_at: 2018-04-09
+:hp-tags: PCI, netsh, Windows, Microsoft Message Analyzer,
+:hp-alt-title: MMA might save the day
+
+
+
+With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not always the case if you still want all of your custom windows applications to still work. To this I started to use Microsoft Message Analzer to not just see what TLS/SSL protocols were being used, but also what processes were obstinently still using the older cipher suites.
+
+
+
+
+
+// MMA started about 1:15 pm
