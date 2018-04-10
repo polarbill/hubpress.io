@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[Random things I've found interesting.]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 10 Apr 2018 19:08:42 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Inspecting and correlating TLS/SSL traffic in Windows]]></title><description><![CDATA[<div class="paragraph">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Inspecting and correlating TLS/SSL traffic in Windows</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://blog.polarbill.com/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//blog.polarbill.com/themes/casper/assets/css/screen.css?v=1523387322068" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="PolarBill&#x27;s blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Inspecting and correlating TLS/SSL traffic in Windows" />
+    <meta property="og:description" content="With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not" />
+    <meta property="og:url" content="http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html" />
+    <meta property="article:published_time" content="2018-04-09T00:00:00.000Z" />
+    <meta property="article:tag" content="PCI" />
+    <meta property="article:tag" content="netsh" />
+    <meta property="article:tag" content="Windows" />
+    <meta property="article:tag" content="Microsoft Message Analyzer" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Inspecting and correlating TLS/SSL traffic in Windows" />
+    <meta name="twitter:description" content="With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not" />
+    <meta name="twitter:url" content="http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "PolarBill's blog",
+    "author": {
+        "@type": "Person",
+        "name": "Bill",
+        "image": "https://avatars0.githubusercontent.com/u/450350?v=4",
+        "url": "http://blog.polarbill.com/author/polarbill/",
+        "sameAs": "polarbill.com"
+    },
+    "headline": "Inspecting and correlating TLS/SSL traffic in Windows",
+    "url": "http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html",
+    "datePublished": "2018-04-09T00:00:00.000Z",
+    "keywords": "PCI, netsh, Windows, Microsoft Message Analyzer",
+    "description": "With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="PolarBill&#x27;s blog" href="http://blog.polarbill.com/rss/" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+    
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+</head>
+<body class="post-template tag-PCI tag-netsh tag-Windows tag-Microsoft-Message-Analyzer nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="http://blog.polarbill.com"><img src="https://avatars2.githubusercontent.com/u/450350?v&#x3D;3&amp;s&#x3D;460" alt="PolarBill&#x27;s blog" /></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-PCI tag-netsh tag-Windows tag-Microsoft-Message-Analyzer">
+
+        <header class="post-header">
+            <h1 class="post-title">Inspecting and correlating TLS/SSL traffic in Windows</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2018-04-09">09 April 2018</time>  on <a href="http://blog.polarbill.com/tag/PCI/">PCI</a>, <a href="http://blog.polarbill.com/tag/netsh/">netsh</a>, <a href="http://blog.polarbill.com/tag/Windows/">Windows</a>, <a href="http://blog.polarbill.com/tag/Microsoft-Message-Analyzer/">Microsoft Message Analyzer</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="paragraph">
 <p>With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not always the case if you still want all of your custom windows applications to still work. To this I started to use Microsoft Message Analzer to not just see what TLS/SSL protocols were being used, but also what processes were obstinently still using the older cipher suites.</p>
 </div>
 <div class="paragraph">
@@ -132,86 +220,88 @@ I have seen it sometimes also provides a false process as well for inbound packe
 </div>
 <div class="paragraph">
 <p>Last thing I want to make you aware is if you are looking into an external facing IIS (w3wp.exe) or other website that is using TLs. Be aware that the external client might not be able to use TLS 1.2. In those situations, it helps to review the initial TLS handshake where you can see the client and server repsonses that includes what version they want to use to communicate.</p>
-</div>]]></description><link>http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html</link><guid isPermaLink="true">http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html</guid><category><![CDATA[PCI]]></category><category><![CDATA[netsh]]></category><category><![CDATA[Windows]]></category><category><![CDATA[Microsoft Message Analyzer]]></category><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Mon, 09 Apr 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[Watermelon Shark]]></title><description><![CDATA[<div class="paragraph">
-<p>Although this is something I made on a whim, I&#8217;m still proud of it and will include it in my colelction of art. More pictures below.</p>
 </div>
-<div class="videoblock">
-<div class="content">
-<iframe src="https://www.youtube.com/embed/CgBqHRPgDeA?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-</div>
-<table class="tableblock frame-all grid-all">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Watermelon Shark</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Food (Watermlon)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Embedded NFC Serial</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bill Davison (2017)<br>
-Given to the Martinez family shortly after<br>
-Trash can some point after that.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Inspiration</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The original goal was for this to be made for a pool/movie birthday party where we would watch Jaws in the pool. Time, resources, and weather cause the delay of the shark, but not the party itself. I decided to make it the following week for another party.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="imageblock">
-<div class="content">
-<img src="/images/Watermelon_shark_large.jpg" alt="Watermelon shark large.jpg">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="/images/Watermelon_shark_front_large.jpg" alt="Watermelon shark front large.jpg">
-</div>
-</div>]]></description><link>http://blog.polarbill.com/2017/06/20/Watermelon-Shark.html</link><guid isPermaLink="true">http://blog.polarbill.com/2017/06/20/Watermelon-Shark.html</guid><category><![CDATA[Art]]></category><category><![CDATA[Summer]]></category><category><![CDATA[Watermelon]]></category><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Tue, 20 Jun 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Florida Boxer Rescue]]></title><description><![CDATA[<div class="paragraph">
-<p><a href="http://www.flbr.org">Florida Boxer Rescue</a> posted a "Giving Thanks" <a href="https://www.facebook.com/Florida.Boxer.Rescue">Facebook</a> post on my wife and I. I thought I would add it to my blog.</p>
-</div>
-<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-post" data-href="https://www.facebook.com/Florida.Boxer.Rescue/posts/10153294016860949:0" data-width="500"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Florida.Boxer.Rescue/posts/10153294016860949:0"><p>GIVING THANKS!Today we would like to give thanks to Andrea and Bill Davison who are amazing volunteers and foster home...</p>Posted by <a href="https://www.facebook.com/Florida.Boxer.Rescue/">Florida Boxer Rescue</a> on&nbsp;<a href="https://www.facebook.com/Florida.Boxer.Rescue/posts/10153294016860949:0">Friday, December 18, 2015</a></blockquote></div></div>
-<div class="paragraph">
-<p>For those blocking scripts/cant see it, the pic/text is below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/s720x720/12348051_10153294016860949_2519079840824693331_n.jpg?oh=f65ccf4324fdc7e675b547a50d5b4f8d&oe=56D9718D" alt="Andrea and myself with Zoey(left and Narley(right)">
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>GIVING THANKS!</p>
-</div>
-<div class="paragraph">
-<p>Today we would like to give thanks to Andrea and Bill Davison who are amazing volunteers and foster home to many dogs in need.</p>
-</div>
-<div class="paragraph">
-<p>Andrea and Bill Davison have been with the rescue for close to 5 years. They initially applied to FBR to adopt but was asked if they would be willing to foster an urgent needs dog. They immediately stepped up and picked up a &gt;terrified pup from HCAS who they named Chance. Since then, they have been dedicated foster parents to 14 boxers (and counting) and are always willing to volunteer their time at events and FBR gatherings.</p>
-</div>
-<div class="paragraph">
-<p>Thank you so much for your dedication and willingness to open your heart and home to foster so many dogs in need. Compassionate Care boy Narley has been so blessed to have you for his family and Zoey is loving being with you. Thank you from all of us here at Florida Boxer Rescue. We wouldn&#8217;t be able to save those that we do without volunteers like you!</p>
-</div>
-</blockquote>
-</div>]]></description><link>http://blog.polarbill.com/2015/12/19/Florida-Boxer-Rescue.html</link><guid isPermaLink="true">http://blog.polarbill.com/2015/12/19/Florida-Boxer-Rescue.html</guid><category><![CDATA[Boxer]]></category><category><![CDATA[Dogs]]></category><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Sat, 19 Dec 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[BSides Las Vegas 2015]]></title><description><![CDATA[<div class="paragraph">
-<p>I was lucky enough to go to hacker mecha. For me this included the "OG" BSides in Las Vegas. I have attended/volunteered at every BSides Tampa and Orlando, and Las Vegas had the same feeling. People were open for conversation, and it felt like a place to freely meet people and exchange ideas.<br></p>
-</div>
-<div class="paragraph">
-<p>This year I took the extra step and decided to present. One amazing part of the Las Vegas BSides (and some others) is that they offer a newbie track (formally called the Proving Ground track.) There is a seperate earlier CFP submission process, where they pair you up with a mentor to assist in your talk. This was the track I selected because of lack in presentation experience. If anyone is feeling nervious about presenting, I would HIGHLY recommend submitting for Proving Ground. I was paired with my mentor Russel (@tcstoolHax0r) who had experience in my topic of SIEMs. He walked me though all the minor things that wouldn&#8217;t come to mind: slide amount, density, etc and also helped with the flow of my talk while also suggesting areas to expand upon for my talk.</p>
-</div>]]></description><link>http://blog.polarbill.com/2015/08/27/B-Sdes-Las-Vegas-2015.html</link><guid isPermaLink="true">http://blog.polarbill.com/2015/08/27/B-Sdes-Las-Vegas-2015.html</guid><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Thu, 27 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[BSides LV Talk - SIEMple technology]]></title><description><![CDATA[<div class="paragraph">
-<p>Below is my talk I previously mentioned about setting up and maintaining a SIEM in your environment. If you would like the slides, additional links, or to download my talk, please go to <a href="https://github.com/polarbill/Presentations/tree/master/BSides%20LV%202015">SIEMple Technology materials</a><br></p>
-</div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K6a_CYKgv6o" frameborder="0" allowfullscreen></iframe>]]></description><link>http://blog.polarbill.com/2015/08/27/B-Sdes-LV-Talk-SIE-Mle-technology.html</link><guid isPermaLink="true">http://blog.polarbill.com/2015/08/27/B-Sdes-LV-Talk-SIE-Mle-technology.html</guid><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Thu, 27 Aug 2015 00:00:00 GMT</pubDate></item></channel></rss>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="http://blog.polarbill.com/author/polarbill/" style="background-image: url(https://avatars0.githubusercontent.com/u/450350?v&#x3D;4)"><span class="hidden">Bill's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="http://blog.polarbill.com/author/polarbill/">Bill</a></h4>
+
+                    <p>Read <a href="http://blog.polarbill.com/author/polarbill/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Florida</span>
+                    <span class="author-link icon-link"><a href="polarbill.com">polarbill.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Inspecting%20and%20correlating%20TLS%2FSSL%20traffic%20in%20Windows&amp;url=http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://blog.polarbill.com">PolarBill&#x27;s blog</a> &copy; 2018</section>
+            <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    <script type="text/javascript" src="//blog.polarbill.com/themes/casper/assets/js/jquery.fitvids.js?v=1523387322068"></script>
+    <script type="text/javascript" src="//blog.polarbill.com/themes/casper/assets/js/index.js?v=1523387322068"></script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46438143-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+</body>
+</html>
