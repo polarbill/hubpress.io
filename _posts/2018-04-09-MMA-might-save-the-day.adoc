@@ -15,7 +15,13 @@ What MMA does have going for itself are two things. Being able to associate traf
 
 Alright, lets dive into using this tool. Install MMA on a system you with plenty of CPU and moderate RAM. I would recommend not installing it on the server you want to investigate. Through MMA, you can run a remote trace if you have the right firewall rules in place, but I normally set up capturing the packets as a separate process.
 
-On the system you want to investigate. Run an elevated command prompt. Then start the packet capture by typing *netsh trace start capture=yes*. This will start the trace and save to appdata\local\temp\NetTraces\ and default to a capture size of 250 MB. This can be changes by adding *tracefile=(drive location)\(file name).etl* and change the max file size by adding *maxsize=###mb*(warning, extending the size  larger will tax MMA proportionally). The trace file will start and start capturing a lot of data. Depending on the amount of traffic in your environment, you can max the trace file rather quickly.
+On the system you want to investigate. Run an elevated command prompt. Then start the packet capture by typing *netsh trace start capture=yes*. This will start the trace and save to appdata\local\temp\NetTraces\ and default to a capture size of 250 MB. This can be changes by adding *tracefile=(drive location)\(file name).etl* and change the max file size by adding *maxsize=###mb*(warning, extending the size  larger will tax MMA proportionally). The trace file will start and start capturing a lot of data. Depending on the amount of traffic in your environment, you can max the trace file rather quickly. 
+
+Once you've waited an appropriate time, go back to the server and run *netsh trace stop*. 
+image::/2018-04_PCI-MMA/netsh_trace.PNG[]
+This will finish colecting data and once done provide two files. The primary .etl file mentioned in the output and a .cab file named the same way. Copy these two files to your local machine, load them in MMA and take a abreak. Wait till your cpu utilization stays below 80%, and you are now ready to start investigating.
+
+
 
 
 
