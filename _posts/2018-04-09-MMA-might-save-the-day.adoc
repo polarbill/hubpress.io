@@ -74,3 +74,13 @@ image::https://blog.polarbill.com/images/2018-04_PCI-MMA/MMA-2processes.PNG[]
 
 
 Last thing I want to make you aware is if you are looking into an external facing IIS (w3wp.exe) or other website that is using TLs. Be aware that the external client might not be able to use TLS 1.2. In those situations, it helps to review the initial TLS handshake where you can see the client and server repsonses that includes what version they want to use to communicate.
+
+
+If you would like more information on using MMA, check the following links.
+
+- link:https://www.youtube.com/playlist?list=PLszrKxVJQz5Uwi90w9j4sQorZosTYgDO4[PaulErLong's Youtube playlist on MMA]
+
+- link:https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/14/packet-sniffing-with-powershell-looking-at-messages/[MS Technet: Packet Sniffing with PowerShell: Looking at Messages]
+
+- link:https://blogs.technet.microsoft.com/askpfeplat/2018/03/19/10-tips-and-tricks-from-the-field/[Technet Blog mentioning netsh trace and powershell's NetEventSession]
+
