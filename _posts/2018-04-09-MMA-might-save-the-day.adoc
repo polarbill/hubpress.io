@@ -74,6 +74,3 @@ image::2018-04_PCI-MMA/MMA-2processes.PNG[]
 
 
 Last thing I want to make you aware is if you are looking into an external facing IIS (w3wp.exe) or other website that is using TLs. Be aware that the external client might not be able to use TLS 1.2. In those situations, it helps to review the initial TLS handshake where you can see the client and server repsonses that includes what version they want to use to communicate.
-
-
-
