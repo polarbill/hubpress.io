@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[Random things I've found interesting.]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 10 Apr 2018 19:34:39 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Inspecting and correlating TLS/SSL traffic in Windows]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PolarBill's blog]]></title><description><![CDATA[Random things I've found interesting.]]></description><link>http://blog.polarbill.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 10 Apr 2018 19:45:08 GMT</lastBuildDate><atom:link href="http://blog.polarbill.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Inspecting and correlating TLS/SSL traffic in Windows]]></title><description><![CDATA[<div class="paragraph">
 <p>With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not always the case if you still want all of your custom windows applications to still work. To this I started to use Microsoft Message Analzer to not just see what TLS/SSL protocols were being used, but also what processes were obstinently still using the older cipher suites.</p>
 </div>
 <div class="paragraph">
@@ -136,6 +136,22 @@ I have seen it sometimes also provides a false process as well for inbound packe
 </div>
 <div class="paragraph">
 <p>Last thing I want to make you aware is if you are looking into an external facing IIS (w3wp.exe) or other website that is using TLs. Be aware that the external client might not be able to use TLS 1.2. In those situations, it helps to review the initial TLS handshake where you can see the client and server repsonses that includes what version they want to use to communicate.</p>
+</div>
+<div class="paragraph">
+<p>If you would like more information on using MMA, check the following links.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PLszrKxVJQz5Uwi90w9j4sQorZosTYgDO4">PaulErLong&#8217;s Youtube playlist on MMA</a></p>
+</li>
+<li>
+<p><a href="https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/14/packet-sniffing-with-powershell-looking-at-messages/">MS Technet: Packet Sniffing with PowerShell: Looking at Messages</a></p>
+</li>
+<li>
+<p><a href="https://blogs.technet.microsoft.com/askpfeplat/2018/03/19/10-tips-and-tricks-from-the-field/">Technet Blog mentioning netsh trace and powershell&#8217;s NetEventSession</a></p>
+</li>
+</ul>
 </div>]]></description><link>http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html</link><guid isPermaLink="true">http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html</guid><category><![CDATA[PCI]]></category><category><![CDATA[netsh]]></category><category><![CDATA[Windows]]></category><category><![CDATA[Microsoft Message Analyzer]]></category><dc:creator><![CDATA[Bill]]></dc:creator><pubDate>Mon, 09 Apr 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[Watermelon Shark]]></title><description><![CDATA[<div class="paragraph">
 <p>Although this is something I made on a whim, I&#8217;m still proud of it and will include it in my colelction of art. More pictures below.</p>
 </div>
