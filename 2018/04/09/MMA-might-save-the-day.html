@@ -12,7 +12,7 @@
 
     <link rel="shortcut icon" href="http://blog.polarbill.com/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="//blog.polarbill.com/themes/casper/assets/css/screen.css?v=1523388082790" />
+    <link rel="stylesheet" type="text/css" href="//blog.polarbill.com/themes/casper/assets/css/screen.css?v=1523388879922" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 
     <link rel="canonical" href="http://blog.polarbill.com/2018/04/09/MMA-might-save-the-day.html" />
@@ -90,7 +90,7 @@
 <p>With the final deadline looming for PCI systems to use only TLS 1.2 (OK they allow better 1.1, but suggest you use ony 1.2 if possible), We had a few clients who were still using TLS 1.0. Enforcing just TLS 1.2 is easy, but not always the case if you still want all of your custom windows applications to still work. To this I started to use Microsoft Message Analzer to not just see what TLS/SSL protocols were being used, but also what processes were obstinently still using the older cipher suites.</p>
 </div>
 <div class="paragraph">
-<p>I would like to preface that this is not the best way to run to preliminarily look for older SSL/TLS in your environment. If you just want to see what versions of TLS, but dont really care about finding the process, then you will have a much easier time running wireshark or seeing if your FW can detect ther version. Using tcpdump or Wireshark capture filter of "tcp port 443 and (tcp[((tcp[12] &amp; 0xf0) &gt;&gt; 2)] = 0x16)" will limit to TLS handshake traffic and is much easier to run for longer periods of time. Additionally Microsoft Message Analyzer requires A LOT of resources to parse a 250 mg trace. I would suggest 4 cores and 16 gigs of ram, and you should still expect to give the tool 30-60 seconds when loading or making major changes. I tried running MMA in my Azure instance (Standard D1: 1 core, 3.5 gigs ram) and I gave up after it spiked the CPU for 11 hours.</p>
+<p>I would like to preface that this is not the best way to run to preliminarily look for older SSL/TLS in your environment. If you just want to see what versions of TLS, but dont really care about finding the process, then you will have a much easier time running wireshark or seeing if your FW can detect ther version. Using tcpdump or Wireshark capture filter of "<strong>tcp port 443 and (tcp[((tcp[12] &amp; 0xf0) &gt;&gt; 2)] = 0x16)</strong>" will limit to TLS handshake traffic and is much easier to run for longer periods of time. Additionally Microsoft Message Analyzer requires A LOT of resources to parse a 250 mg trace. I would suggest 4 cores and 16 gigs of ram, and you should still expect to give the tool 30-60 seconds when loading or making major changes. I tried running MMA in my Azure instance (Standard D1: 1 core, 3.5 gigs ram) and I gave up after it spiked the CPU for 11 hours.</p>
 </div>
 <div class="paragraph">
 <p>What MMA does have going for itself are two things. Being able to associate traffic with a process, and being able to natively capture traffic with installing any software on the server. This is a bonus in my use case as a change request process for PCI envrionments could delay troubleshooting.</p>
@@ -294,8 +294,8 @@ I have seen it sometimes also provides a false process as well for inbound packe
         hljs.initHighlightingOnLoad();
       </script>
 
-    <script type="text/javascript" src="//blog.polarbill.com/themes/casper/assets/js/jquery.fitvids.js?v=1523388082790"></script>
-    <script type="text/javascript" src="//blog.polarbill.com/themes/casper/assets/js/index.js?v=1523388082790"></script>
+    <script type="text/javascript" src="//blog.polarbill.com/themes/casper/assets/js/jquery.fitvids.js?v=1523388879922"></script>
+    <script type="text/javascript" src="//blog.polarbill.com/themes/casper/assets/js/index.js?v=1523388879922"></script>
 
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
