@@ -10,7 +10,7 @@
   },
   "urls": {
     "site": "http://blog.polarbill.com",
-    "hubpress": "http://blog.polarbill.com",
+    "hubpress": "https://blog.polarbill.com",
     "theme": "//blog.polarbill.com/themes/casper",
     "images": "http://blog.polarbill.com/images"
   },
